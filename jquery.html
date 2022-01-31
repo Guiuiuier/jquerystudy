@@ -7,10 +7,112 @@
 	<script src="js/jquery.min.js"></script>
 </head>
 <body>
-		<button type="button" onclick="btn()" value="计算平方">计算平方</button>
-	    <input type="text" id="xiao" >     
+		<button type="button" onclick="clor()" value="计算平方">计算平方</button>
+		<input type="text" id="xiao" value="dddddd" /> 
+		<input type="radio" value="man">
+		<input type="radio" value="girl">
+		<div id="box1">12323</div>
+		<div class="box1">fff</div>
+		 <div id="one">div1</div>
+		 <div id="two">div2</div>
+		  <button id="btn">ddd</button>
+
+		  <input type="text" value="d">
 </body>
   <script>
+
+$(function(){
+	 $("#btn").click(function(){
+		 var obj=$(":text:enable") //选择input标签下的text 且可以用的
+		 obj.val("hello");//值设置为hello
+	 })
+})
+
+
+//dom绑定事件
+//  $("选择器").事件名称(事件处理函数)
+//  $(选择器):定位DOM对象，dom对象可以有多个。这些dom对象都绑定事件了
+//  事件名称:就是js中事件去掉on的部分， 例如js找那个的单击事件 onclick()
+//   jquery 中的事件名称，就是click都是小写的
+//事件的处理函数:就是一个function 当时间发生时执行这个函数的内容， 
+ //例如:  
+			//  $("#btn").click(function(){
+			// 	  alert("btn单击了");
+			//  })
+						//此时就不用在标签中添加onclick=btn()了
+
+
+
+// $(document).ready(函数)://当页面中的dom对象加载成功后会执行 ready()；
+					//当页面dom对象加载后给对象绑定按钮，因为此时button对象已经在内存中创建好了才能使用
+	// $(function(){
+	// 	alert("d");
+	// })
+	  
+	  //获取第一个div
+	//   $(function(){
+	// 	  $("#btn").click(function(){
+	// 		  $("div:first").css("background","blue");
+	// 		  $("div:last").css("background","blue");
+	// 		  $("div:lt(3)").css("background","yellow");
+	// 	  })
+	//   })
+
+
+
+
+
+//样式选择器
+// var obj=$("#box1");
+//   obj.css("background","yellow");
+// //类选择器
+// var ob=$(".box1");
+//  ob.css("background","blue");
+//  //所有选择器
+//  var o=$("*");
+//  o.css("background","gray");
+// //标签选择器
+// var d=$("div");
+// d.css("background","#bfa");
+// //组合选择器
+// // $("#id.class,标签名");
+// function clor(){
+// var f=$("#box1,.box1,button");
+// f.css("background","yellow"); //只能写一个样式
+// }
+
+
+//表单选择器
+ //<input type="text"> 不论表单是否存在<form>均可做出相应的选择
+//   语法:$(":type 属性值");
+//   $(":tr")不能用因为不是input标签
+//   $(":text")选区所有的单行文本框
+// $(":radio")选取所有的单选框
+
+//val()获取值
+//  alert($(":text").val());
+  //获取数组成员
+//    var obj=$(":radio");
+//    for(var i=0;i<obj.length;i++){
+// 	   var dom=obj[i];
+// 	   alert(dom.value);
+//    }
+
+
+	//过滤器
+	 //选择第一个first保留数组中第一个dom对象
+	//  语法:$("选择器:first")
+	 //最后一个
+	//  $("选择器:last")
+	//数组中指定 对象
+	//  $("选择器:eq(数组索引)")
+	//选择数组中小于指定索引的所有dom对象
+	//  语法:$("选择器:lt(数组索引)")
+	//  选择数组中大于指定索引的所有dom对象
+	// 语法:$("选择器:gt(数组索引)")
+//  var xuan=$(".one:eq(0)");
+//  console.log(xuan);
+
 	    //jq中 $(document).ready(function(){}) 与$(function(){}) jQuery(),window.jQuery()是等价的
 
 		//jquery对象表示的都是数组 var jobj=$("#TXT")  就是jquery对象 他是一个数组 现在数组中就一个值
@@ -23,6 +125,10 @@
 
 	//   varobj=$("#txt")[0];从数组中获取下表是0的dom对象
 	//   var obj =$("#txt")[0].get(0) 同上
+
+
+
+
 
 
 // #表示id选择器
