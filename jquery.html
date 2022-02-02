@@ -1,148 +1,233 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<script src="js/jquery.min.js"></script>
-</head>
-<body>
-		<button type="button" onclick="clor()" value="计算平方">计算平方</button>
-		<input type="text" id="xiao" value="dddddd" /> 
-		<input type="radio" value="man">
-		<input type="radio" value="girl">
-		<div id="box1">12323</div>
-		<div class="box1">fff</div>
-		 <div id="one">div1</div>
-		 <div id="two">div2</div>
-		  <button id="btn">ddd</button>
-
-		  <input type="text" value="d">
-</body>
-  <script>
-
-$(function(){
-	 $("#btn").click(function(){
-		 var obj=$(":text:enable") //选择input标签下的text 且可以用的
-		 obj.val("hello");//值设置为hello
-	 })
-})
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<script src="js/jquery.min.js"></script>
+	</head>
+	<body>
+			<button type="button" onclick="clor()" value="计算平方">计算平方</button>
+			<input type="text" id="xiao" value="dddddd" /> 
+			<input type="radio" value="man">
+			<input type="radio" value="girl">
+			<div id="box1">12323
+			<div class="box1">fff</div></div>
+			<div id="one">div1</div>
+			<div id="two">div2</div>
+			<input type="button" id="btn" value="btn">
+			<input type="text" value="d">
+			<img src="img/1.jpg" alt="">
+	</body>
+	<script>
 
 
-//dom绑定事件
-//  $("选择器").事件名称(事件处理函数)
-//  $(选择器):定位DOM对象，dom对象可以有多个。这些dom对象都绑定事件了
-//  事件名称:就是js中事件去掉on的部分， 例如js找那个的单击事件 onclick()
-//   jquery 中的事件名称，就是click都是小写的
-//事件的处理函数:就是一个function 当时间发生时执行这个函数的内容， 
- //例如:  
-			//  $("#btn").click(function(){
-			// 	  alert("btn单击了");
-			//  })
-						//此时就不用在标签中添加onclick=btn()了
+//on事件绑定
+//  $(选择器).on(事件名称,function(){});
+// 事件名称就是js事件中去掉on的部分 onclick =click
+// 例子  这个个jq click差不多的  $().click(func(){
+
+// })
+// $("#btn").on("click",function(){
+	// alert("d");
+// })
+
+//remove 删除dom对象以及子对象
+//empty 将数组中所有dom对象的子对象删除
+// append 将数组中所有对象添加子对象
+// $("#btn").click(function(){
+// 	$("#box1").remove();
+// 	$("#one").append("<div>四大近段时间</div>");
+// })
+
+
+// html设置或返回被选元素的内容(innerHTML) //返回第一个符合条件的
+// $("#btn").click(function(){
+	// alert($("div").html());    // <div class=box1>dsdds</div>
+	// $("div").html("我是新的<b>数据</b>");//以数组的形式返回
+// })
+// $("选择器").html() 匹配dom数组第一个匹配元素的内容
+// $("选择器").html(值) 有参数调用 用于设置dom数组中所有元素的内容
+
+// each是对数组,json和dom数组等的遍历 对每个元素调用一次函数
+// 语法:$.each(要遍历的对象,function(index,element){处理程序})
+// 语法:jQuery对象.each(function(index,element){处理程序})
+// index:数组的下标  都是自定义函数  名称自定义
+// element:数组的对象  数组中的成员
+// $("#btn").click(function(){
+// 	//普通循环数组
+// 	var  arr=[1,2,3];
+
+// 	$.each(arr,function(index,element){
+// 		alert("==");
+// 	});
+// })
+//循环json对象
+// $("#btn").click(function(){
+// 	var json={"name":"sjsjs","age":20};
+// 	$.each(json,function(index,element){
+// 		alert("i是key="+index+"n是="+element);
+// 	})
+// })
+
+//循环dom对象
+//   var dom=$(":text");//dom数组
+//   $.each(dom,function(i,n){
+	//   alert(i+n.value); //获取value值
+//   })
+
+
+//读取指定的值 attr只能获取第一个值
+// attr("src","img/1.jpg")//可以设置值
+    
+
+//   $("#btn").click(function(){
+    //   $("img").attr("src","img/2.jpg");
+//   val()//操作value
+//   text() 操作文本
+	//    inputs=$("input");
+	//    for(var i=0;i<inputs.length;i++){
+	//   alert($("input").attr("value")); //attr只能获取第一个input的值
+	//   alert($(inputs[i]).attr("value")); //取其中的数组 jq取的值全是数组；
+	//    }
+//   })
 
 
 
-// $(document).ready(函数)://当页面中的dom对象加载成功后会执行 ready()；
-					//当页面dom对象加载后给对象绑定按钮，因为此时button对象已经在内存中创建好了才能使用
+//为所有div设置新的文本内容
+//   $("#btn").click(function(){
+// 	  $("div").text("新的文本值");
+//   })
+
+
 	// $(function(){
-	// 	alert("d");
-	// })
-	  
-	  //获取第一个div
-	//   $(function(){
-	// 	  $("#btn").click(function(){
-	// 		  $("div:first").css("background","blue");
-	// 		  $("div:last").css("background","blue");
-	// 		  $("div:lt(3)").css("background","yellow");
-	// 	  })
-	//   })
-
-
-
-
-
-//样式选择器
-// var obj=$("#box1");
-//   obj.css("background","yellow");
-// //类选择器
-// var ob=$(".box1");
-//  ob.css("background","blue");
-//  //所有选择器
-//  var o=$("*");
-//  o.css("background","gray");
-// //标签选择器
-// var d=$("div");
-// d.css("background","#bfa");
-// //组合选择器
-// // $("#id.class,标签名");
-// function clor(){
-// var f=$("#box1,.box1,button");
-// f.css("background","yellow"); //只能写一个样式
-// }
-
-
-//表单选择器
- //<input type="text"> 不论表单是否存在<form>均可做出相应的选择
-//   语法:$(":type 属性值");
-//   $(":tr")不能用因为不是input标签
-//   $(":text")选区所有的单行文本框
-// $(":radio")选取所有的单选框
-
-//val()获取值
-//  alert($(":text").val());
-  //获取数组成员
-//    var obj=$(":radio");
-//    for(var i=0;i<obj.length;i++){
-// 	   var dom=obj[i];
-// 	   alert(dom.value);
-//    }
-
-
-	//过滤器
-	 //选择第一个first保留数组中第一个dom对象
-	//  语法:$("选择器:first")
-	 //最后一个
-	//  $("选择器:last")
-	//数组中指定 对象
-	//  $("选择器:eq(数组索引)")
-	//选择数组中小于指定索引的所有dom对象
-	//  语法:$("选择器:lt(数组索引)")
-	//  选择数组中大于指定索引的所有dom对象
-	// 语法:$("选择器:gt(数组索引)")
-//  var xuan=$(".one:eq(0)");
-//  console.log(xuan);
-
-	    //jq中 $(document).ready(function(){}) 与$(function(){}) jQuery(),window.jQuery()是等价的
-
-		//jquery对象表示的都是数组 var jobj=$("#TXT")  就是jquery对象 他是一个数组 现在数组中就一个值
-	// $(document).ready(function(){
-		// alert("d");
-	// })
-	// $(function(){
-	// 	alert("fd");
+	// 	$("#btn").click(function(){
+	// 		var obj=$(":text:enable") //选择input标签下的text 且可以用的
+	// 		obj.val("hello");//值设置为hello
+	// 	})
 	// })
 
-	//   varobj=$("#txt")[0];从数组中获取下表是0的dom对象
-	//   var obj =$("#txt")[0].get(0) 同上
+
+//   $(function(){
+// 	  $("#btn").click(function(){
+// 		  var obj=$(":text:enable");
+// 		  obj.val("hello");
+// 	  })
+//   })
+	//dom绑定事件
+	//  $("选择器").事件名称(事件处理函数)
+	//  $(选择器):定位DOM对象，dom对象可以有多个。这些dom对象都绑定事件了
+	//  事件名称:就是js中事件去掉on的部分， 例如js找那个的单击事件 onclick()
+	//   jquery 中的事件名称，就是click都是小写的
+	//事件的处理函数:就是一个function 当时间发生时执行这个函数的内容， 
+	//例如:  
+				//  $("#btn").click(function(){
+				// 	  alert("btn单击了");
+				//  })
+							//此时就不用在标签中添加onclick=btn()了
+
+
+
+	// $(document).ready(函数)://当页面中的dom对象加载成功后会执行 ready()；
+						//当页面dom对象加载后给对象绑定按钮，因为此时button对象已经在内存中创建好了才能使用
+		// $(function(){
+		// 	alert("d");
+		// })
+		
+		//获取第一个div
+		//   $(function(){
+		// 	  $("#btn").click(function(){
+		// 		  $("div:first").css("background","blue");
+		// 		  $("div:last").css("background","blue");
+		// 		  $("div:lt(3)").css("background","yellow");
+		// 	  })
+		//   })
 
 
 
 
 
-
-// #表示id选择器
-
-
-//计算平方
-//写一个函数
-    // function btn(){
-	//    var obj=$("#xiao")[0];//jq对象都是数组
-		// var num=obj.value;
-		//  var result=num*num;
-			// obj.value=result;
-			// console.log(obj.value);
+	//样式选择器
+	// var obj=$("#box1");
+	//   obj.css("background","yellow");
+	// //类选择器
+	// var ob=$(".box1");
+	//  ob.css("background","blue");
+	//  //所有选择器
+	//  var o=$("*");
+	//  o.css("background","gray");
+	// //标签选择器
+	// var d=$("div");
+	// d.css("background","#bfa");
+	// //组合选择器
+	// // $("#id.class,标签名");
+	// function clor(){
+	// var f=$("#box1,.box1,button");
+	// f.css("background","yellow"); //只能写一个样式
 	// }
-   
-  </script>
-</html>
+
+
+	//表单选择器
+	//<input type="text"> 不论表单是否存在<form>均可做出相应的选择
+	//   语法:$(":type 属性值");
+	//   $(":tr")不能用因为不是input标签
+	//   $(":text")选区所有的单行文本框
+	// $(":radio")选取所有的单选框
+
+	//val()获取值
+	//  alert($(":text").val());
+	//获取数组成员
+	//    var obj=$(":radio");
+	//    for(var i=0;i<obj.length;i++){
+	// 	   var dom=obj[i];
+	// 	   alert(dom.value);
+	//    }
+
+
+		//过滤器
+		//选择第一个first保留数组中第一个dom对象
+		//  语法:$("选择器:first")
+		//最后一个
+		//  $("选择器:last")
+		//数组中指定 对象
+		//  $("选择器:eq(数组索引)")
+		//选择数组中小于指定索引的所有dom对象
+		//  语法:$("选择器:lt(数组索引)")
+		//  选择数组中大于指定索引的所有dom对象
+		// 语法:$("选择器:gt(数组索引)")
+	//  var xuan=$(".one:eq(0)");
+	//  console.log(xuan);
+
+			//jq中 $(document).ready(function(){}) 与$(function(){}) jQuery(),window.jQuery()是等价的
+
+			//jquery对象表示的都是数组 var jobj=$("#TXT")  就是jquery对象 他是一个数组 现在数组中就一个值
+		// $(document).ready(function(){
+			// alert("d");
+		// })
+		// $(function(){
+		// 	alert("fd");
+		// })
+
+		//   varobj=$("#txt")[0];从数组中获取下表是0的dom对象
+		//   var obj =$("#txt")[0].get(0) 同上
+
+
+
+
+
+
+	// #表示id选择器
+
+
+	//计算平方
+	//写一个函数
+		// function btn(){
+		//    var obj=$("#xiao")[0];//jq对象都是数组
+			// var num=obj.value;
+			//  var result=num*num;
+				// obj.value=result;
+				// console.log(obj.value);
+		// }
+	
+	</script>
+	</html>
