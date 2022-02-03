@@ -20,6 +20,69 @@
 			<img src="img/1.jpg" alt="">
 	</body>
 	<script>
+//ajax四个步骤 jquery简化了ajax请求的处理
+// $.ajax() jquery实现ajax的核心函数
+// $.post() 使用post实现ajax请求
+// $.get() 使用get实现ajax请求
+//  get和post都是调用$.ajax()
+ 
+
+			// 核心对象 XMLHttpRequest 
+			// 1,创建异步对象，var xmlHTTP=new XMLHttpRequest
+			// 2,绑定事件 xmlhttp.onreadystatechange=function()获取服务器端返回的数据，更新dom
+			// 3，初始化请求参数xmlhttp.open(get，url，true)
+			// 4，发送请求xmlhttp.send（）
+		// 使用 函数的参数表示请求的url,请求的方式参数值等信息。
+		// $.ajax()参数是一个json的结构
+		// 例如$.ajax({名称:值，名称:值})
+		// json结构参数说明:
+		// 1,async:布尔类型的值 默认是true true 是用来表示异步请求的，xmlhtt.open(get,url,true) 可以不写  默认是true
+		// $.ajax({async:true,contentType:"application/json",data:{name:"lisi"} ，dataType:"json",error:function(){},success:fucntion(data){//data就是responsetext},url:"http://www.xxx.com",type:post})
+		// 2,contentType:一个字符串 表示从浏览器发送服务器的参数类型 可以不写
+		//  例如表示json格式 可以写application/json
+		// 3,data可以是字符串，数组，json，表示请求的参数值和参数 常用的是json
+		// 4,dataType表示期望(不一定能返回到)从服务器端返回的数据格式可选的有 xml,html,text,json
+			//当使用$.ajax()发送请求时会把dataType的值发送给服务器，服务器会读取到dataType的值就知道你的浏览器需要的是json或者是xml的数据。那么服务器可以返回
+		// 5,error：一个function函数 表示发生错误时 返回的函数
+			//error:function(){执行代码}
+		// 6,success:一个function函数 请求成功了，会执行success指定的函数  例如 readyState==4&&status==200的时候
+		// 7，url 请求的地址
+		// 8,type 请求的方式 post或者get 默认get不区分大小写
+				//只用使用 url,data,dataType,suceess
+
+
+//例子
+// $(function(){
+// 	$("#btn").click(function(){
+// 		//获取value值
+// 		var name=$("#xiao").val();
+// 		console.log(name);
+// 		//ajax请求
+// 		$.ajax({
+// 			url:"",
+// 			data:{
+// 				"priod":"priod"
+// 			},
+// 			dataType:"json",
+// 			suceess:function(resp){
+// 				alert(resp);
+// 			}
+// 		})
+// 	})
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //on事件绑定
